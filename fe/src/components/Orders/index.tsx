@@ -11,7 +11,7 @@ export const Orders = () => {
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
-    const socket = socketIo('http://localhost3001', {transports: ['websocket'],});
+    const socket = socketIo('http://localhost:3001', {transports: ['websocket'],});
     socket.on('order@new', (order) => {
       setOrders(prevState => prevState.concat(order));
     });
